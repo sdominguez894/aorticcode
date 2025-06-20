@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Prótesis EVAR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .input-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .results-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid #27ae60;
+        }
+
+        .result-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .prosthesis-info {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .prosthesis-code {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.1em;
+        }
+
+        .branch-option {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .branch-title {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .branch-details {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #856404;
+        }
+
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #721c24;
+        }
+
+        .bridge-warning {
+            background: #fff2cc;
+            border: 1px solid #ffd700;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 10px;
+            color: #b8860b;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Calculadora de Prótesis EVAR</h1>
+            <p>Planificación de Prótesis Aórticas Endovasculares</p>
+        </div>
+
+        <div class="content">
+            <div class="input-section">
+                <div class="section-title">
+                    📏 Medidas del Paciente
+                </div>
+
+                <div class="form-group">
+                    <label for="neckDiameter">Diámetro del cuello del aneurisma (mm)</label>
+                    <input type="number" id="neckDiameter" step="0.1" placeholder="Ej: 24.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="contralateralIliacDiameter">Diámetro de sellado ilíaco contralateral (mm)</label>
+                    <input type="number" id="contralateralIliacDiameter" step="0.1" placeholder="Ej: 18.0">
+                </div>
+
+                <div class="form-group">
+                    <label for="ipsilateralIliacDiameter">Diámetro de sellado ilíaco ipsilateral (mm)</label>
+                    <input type="number" id="ipsilateralIliacDiameter" step="0.1" placeholder="Ej: 16.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="contralateralDistance">Distancia desde cuello hasta sellado distal contralateral (mm)</label>
+                    <input type="number" id="contralateralDistance" placeholder="Ej: 150">
+                </div>
+
+                <div class="form-group">
+                    <label for="ipsilateralDistance">Distancia desde cuello hasta sellado distal ipsilateral (mm)</label>
+                    <input type="number" id="ipsilateralDistance" placeholder="Ej: 145">
+                </div>
+
+                <button class="calculate-btn" onclick="calculateProsthesis()">
+                    🔍 Calcular Prótesis
+                </button>
+            </div>
+
+            <div class="results-section">
+                <div class="section-title">
+                    🎯 Resultados y Recomendaciones
+                </div>
+                <div id="results">
+                    <p style="text-align: center; color: #6c757d; font-style: italic; margin-top: 50px;">
+                        Introduce las medidas del paciente y haz clic en "Calcular Prótesis" para obtener las recomendaciones.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Catálogo de prótesis con correcciones de longitud de patas
+        const bodies = [
+            { code: 'CXT201412E', diameter: 20, length: 55, shortLeg: 30, longLeg: 65 },
+            { code: 'CXT231412E', diameter: 23, length: 55, shortLeg: 30, longLeg: 65 },
+            { code: 'CXT261412E', diameter: 26, length: 55, shortLeg: 30, longLeg: 65 },
+            { code: 'CXT281412E', diameter: 28.5, length: 55, shortLeg: 30, longLeg: 65 },
+            { code: 'CXT321414E', diameter: 32, length: 65, shortLeg: 30, longLeg: 75 },
+            { code: 'CXT361414E', diameter: 36, length: 65, shortLeg: 30, longLeg: 75 }
+        ];
+
+        const branches = [
+            { code: 'PLC121000', diameter: 12, length: 100 },
+            { code: 'PLC121200', diameter: 12, length: 120 },
+            { code: 'PLC121400', diameter: 12, length: 140 },
+            { code: 'PLC141000', diameter: 14.5, length: 100 },
+            { code: 'PLC141200', diameter: 14.5, length: 120 },
+            { code: 'PLC141400', diameter: 14.5, length: 140 },
+            { code: 'PLC161000', diameter: 16, length: 95 },
+            { code: 'PLC161200', diameter: 16, length: 115 },
+            { code: 'PLC161400', diameter: 16, length: 135 },
+            { code: 'PLC181000', diameter: 18, length: 95 },
+            { code: 'PLC181200', diameter: 18, length: 115 },
+            { code: 'PLC181400', diameter: 18, length: 135 },
+            { code: 'PLC201000', diameter: 20, length: 95 },
+            { code: 'PLC201200', diameter: 20, length: 115 },
+            { code: 'PLC201400', diameter: 20, length: 135 },
+            { code: 'PLC231000', diameter: 23, length: 100 },
+            { code: 'PLC231200', diameter: 23, length: 120 },
+            { code: 'PLC231400', diameter: 23, length: 140 },
+            { code: 'PLC271000', diameter: 27, length: 100 },
+            { code: 'PLC271200', diameter: 27, length: 120 },
+            { code: 'PLC271400', diameter: 27, length: 140 }
+        ];
+
+        function selectMainBody(neckDiameter) {
+            // Buscar cuerpos con sobredimensionamiento entre 10% y 30%
+            const minAllowedDiameter = neckDiameter * 1.10;
+            const maxAllowedDiameter = neckDiameter * 1.30;
+            
+            // Filtrar cuerpos que estén entre 10% y 30% de sobredimensionamiento
+            const suitableBodies = bodies.filter(body => 
+                body.diameter >= minAllowedDiameter && body.diameter <= maxAllowedDiameter
+            );
+            
+            if (suitableBodies.length === 0) {
+                return null; // No hay cuerpo disponible
+            }
+            
+            // Seleccionar el menor que sea adecuado
+            const selectedBody = suitableBodies[0];
+            return {
+                ...selectedBody,
+                oversizing: ((selectedBody.diameter / neckDiameter - 1) * 100).toFixed(1)
+            };
+        }
+
+        function findBranchOptions(targetDiameter, bodyLength, legLength, totalDistance) {
+            // Aplicar sobredimensionamiento entre 10% y 30% para sellado ilíaco
+            const minAllowedDiameter = targetDiameter * 1.10;
+            const maxAllowedDiameter = targetDiameter * 1.30;
+            
+            // Filtrar ramas que estén entre 10% y 30% de sobredimensionamiento
+            const suitableBranches = branches.filter(branch => 
+                branch.diameter >= minAllowedDiameter && branch.diameter <= maxAllowedDiameter
+            );
+            
+            // Calcular cobertura actual del cuerpo + pata
+            const currentCoverage = bodyLength + legLength;
+            const remainingDistance = totalDistance - currentCoverage + 30; // +30 por el solapamiento con la pata
+            
+            const options = [];
+            
+            // Opción 1: Rama única
+            suitableBranches.forEach(branch => {
+                const totalCoverage = currentCoverage + branch.length - 30; // -30 por solapamiento pata-rama
+                if (totalCoverage >= totalDistance) {
+                    const oversizing = ((branch.diameter / targetDiameter - 1) * 100).toFixed(1);
+                    options.push({
+                        type: 'single',
+                        branches: [branch],
+                        totalCoverage: totalCoverage,
+                        excess: totalCoverage - totalDistance,
+                        oversizing: oversizing,
+                        description: `Rama única: ${branch.code} (Ø${branch.diameter}mm, L${branch.length}mm, +${oversizing}%)`
+                    });
+                }
+            });
+            
+            // Opción 2: Múltiples ramas (para casos que requieren mayor longitud)
+            for (let i = 0; i < suitableBranches.length; i++) {
+                for (let j = 0; j < suitableBranches.length; j++) {
+                    const branch1 = suitableBranches[i];
+                    const branch2 = suitableBranches[j];
+                    
+                    // Verificar que ambas ramas tengan el mismo diámetro para conectarse
+                    if (branch1.diameter === branch2.diameter) {
+                        const totalCoverage = currentCoverage + branch1.length + branch2.length - 60; // -30 pata-rama1, -30 rama1-rama2
+                        if (totalCoverage >= totalDistance && branch1.length + branch2.length - 30 > remainingDistance) {
+                            const oversizing = ((branch1.diameter / targetDiameter - 1) * 100).toFixed(1);
+                            options.push({
+                                type: 'double',
+                                branches: [branch1, branch2],
+                                totalCoverage: totalCoverage,
+                                excess: totalCoverage - totalDistance,
+                                oversizing: oversizing,
+                                description: `Doble rama: ${branch1.code} + ${branch2.code} (Ø${branch1.diameter}mm, +${oversizing}%)`
+                            });
+                        }
+                    }
+                }
+            }
+            
+            // Verificar si se necesita puente
+            const needsBridge = options.length === 0 || remainingDistance > Math.max(...suitableBranches.map(b => b.length));
+            
+            // Ordenar por exceso menor (preferir las que se ajusten mejor)
+            return {
+                options: options.sort((a, b) => a.excess - b.excess),
+                needsBridge: needsBridge,
+                remainingDistance: remainingDistance,
+                suitableBranches: suitableBranches
+            };
+        }
+
+        function calculateProsthesis() {
+            const neckDiameter = parseFloat(document.getElementById('neckDiameter').value);
+            const contralateralIliacDiameter = parseFloat(document.getElementById('contralateralIliacDiameter').value);
+            const ipsilateralIliacDiameter = parseFloat(document.getElementById('ipsilateralIliacDiameter').value);
+            const contralateralDistance = parseInt(document.getElementById('contralateralDistance').value);
+            const ipsilateralDistance = parseInt(document.getElementById('ipsilateralDistance').value);
+
+            const resultsDiv = document.getElementById('results');
+
+            // Validar entrada
+            if (isNaN(neckDiameter) || isNaN(contralateralIliacDiameter) || isNaN(ipsilateralIliacDiameter) || 
+                isNaN(contralateralDistance) || isNaN(ipsilateralDistance)) {
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>Error:</strong> Por favor, completa todos los campos con valores numéricos válidos.
+                    </div>
+                `;
+                return;
+            }
+
+            // Seleccionar cuerpo principal
+            const selectedBody = selectMainBody(neckDiameter);
+            if (!selectedBody) {
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>Error:</strong> No hay cuerpo principal disponible para un diámetro de cuello de ${neckDiameter}mm con sobredimensionamiento entre 10% y 30%.
+                        <br>Considere alternativas quirúrgicas o dispositivos de diferente diámetro.
+                    </div>
+                `;
+                return;
+            }
+
+            // Calcular opciones de ramas
+            const contralateralResult = findBranchOptions(contralateralIliacDiameter, selectedBody.length, selectedBody.shortLeg, contralateralDistance);
+            const ipsilateralResult = findBranchOptions(ipsilateralIliacDiameter, selectedBody.length, selectedBody.longLeg, ipsilateralDistance);
+
+            // Generar resultados
+            let resultsHTML = `
+                <div class="result-card">
+                    <div class="result-title">🎯 Cuerpo Principal Seleccionado</div>
+                    <div class="prosthesis-info">
+                        <div class="prosthesis-code">${selectedBody.code}</div>
+                        <div>Diámetro: ${selectedBody.diameter}mm (Cuello: ${neckDiameter}mm, Sobredimensionamiento: +${selectedBody.oversizing}%)</div>
+                        <div>Longitud del cuerpo: ${selectedBody.length}mm</div>
+                        <div>Pata contralateral: ${selectedBody.shortLeg}mm | Pata ipsilateral: ${selectedBody.longLeg}mm</div>
+                    </div>
+                </div>
+            `;
+
+            // Rama contralateral (conecta con pata corta)
+            resultsHTML += `
+                <div class="result-card">
+                    <div class="result-title">↔️ Rama Ilíaca Contralateral (Pata Corta)</div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>Distancia total a cubrir:</strong> ${contralateralDistance}mm
+                        <br><strong>Cobertura del cuerpo + pata contralateral:</strong> ${selectedBody.length + selectedBody.shortLeg}mm
+                        <br><small>Necesaria extensión con ramas (considerando solapamiento de 30mm)</small>
+                    </div>
+            `;
+
+            if (contralateralResult.options.length > 0) {
+                contralateralResult.options.slice(0, 3).forEach((option, index) => {
+                    resultsHTML += `
+                        <div class="branch-option">
+                            <div class="branch-title">Opción ${index + 1}: ${option.description}</div>
+                            <div class="branch-details">
+                                Cobertura total: ${option.totalCoverage}mm | Exceso: ${option.excess}mm
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                resultsHTML += `
+                    <div class="error">
+                        No hay ramas disponibles para diámetro ${contralateralIliacDiameter}mm con sobredimensionamiento entre 10% y 30%
+                    </div>
+                `;
+            }
+
+            if (contralateralResult.needsBridge) {
+                resultsHTML += `
+                    <div class="bridge-warning">
+                        <strong>⚠️ Atención:</strong> Se requiere rama puente adicional para cubrir la distancia completa en lado contralateral.
+                        <br>Distancia restante estimada: ~${Math.max(0, contralateralResult.remainingDistance)}mm
+                    </div>
+                `;
+            }
+
+            resultsHTML += `</div>`;
+
+            // Rama ipsilateral (conecta con pata larga)
+            resultsHTML += `
+                <div class="result-card">
+                    <div class="result-title">↔️ Rama Ilíaca Ipsilateral (Pata Larga)</div>
+                    <div style="margin-bottom: 15px;">
+                        <strong>Distancia total a cubrir:</strong> ${ipsilateralDistance}mm
+                        <br><strong>Cobertura del cuerpo + pata ipsilateral:</strong> ${selectedBody.length + selectedBody.longLeg}mm
+                        <br><small>Necesaria extensión con ramas (considerando solapamiento de 30mm)</small>
+                    </div>
+            `;
+
+            if (ipsilateralResult.options.length > 0) {
+                ipsilateralResult.options.slice(0, 3).forEach((option, index) => {
+                    resultsHTML += `
+                        <div class="branch-option">
+                            <div class="branch-title">Opción ${index + 1}: ${option.description}</div>
+                            <div class="branch-details">
+                                Cobertura total: ${option.totalCoverage}mm | Exceso: ${option.excess}mm
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                resultsHTML += `
+                    <div class="error">
+                        No hay ramas disponibles para diámetro ${ipsilateralIliacDiameter}mm con sobredimensionamiento entre 10% y 30%
+                    </div>
+                `;
+            }
+
+            if (ipsilateralResult.needsBridge) {
+                resultsHTML += `
+                    <div class="bridge-warning">
+                        <strong>⚠️ Atención:</strong> Se requiere rama puente adicional para cubrir la distancia completa en lado ipsilateral.
+                        <br>Distancia restante estimada: ~${Math.max(0, ipsilateralResult.remainingDistance)}mm
+                    </div>
+                `;
+            }
+
+            resultsHTML += `</div>`;
+
+            // Advertencias
+            let warningHTML = '';
+            if (parseFloat(selectedBody.oversizing) > 25) {
+                warningHTML += `
+                    <div class="warning">
+                        <strong>Advertencia:</strong> Sobredimensionamiento alto del cuerpo principal (+${selectedBody.oversizing}%). Verificar compatibilidad anatómica.
+                    </div>
+                `;
+            }
+            
+            if (parseFloat(selectedBody.oversizing) < 10) {
+                warningHTML += `
+                    <div class="warning">
+                        <strong>Advertencia:</strong> Sobredimensionamiento muy bajo del cuerpo principal (+${selectedBody.oversizing}%). Riesgo elevado de endoleak tipo I.
+                    </div>
+                `;
+            }
+
+            resultsHTML += warningHTML;
+
+            resultsDiv.innerHTML = resultsHTML;
+        }
+
+        // Permitir cálculo con Enter
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateProsthesis();
+            }
+        });
+    </script>
+</body>
+</html>
