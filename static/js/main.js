@@ -1,4 +1,4 @@
-  // Catálogo de prótesis con correcciones de longitud de patas
+// Catálogo de prótesis con correcciones de longitud de patas
 const bodies = [
     { code: 'CXT201412E', diameter: 20, length: 55, shortLeg: 30, longLeg: 65 },
     { code: 'CXT231412E', diameter: 23, length: 55, shortLeg: 30, longLeg: 65 },
@@ -32,7 +32,22 @@ const branches = [
     { code: 'PLC271400', diameter: 27, length: 140 }
 ];
 
-function selectMainBody(neckDiameter) {
+function updateImageLabel( event )
+{
+    // Obtenim l'element modificat
+    let inputField = event.target;
+
+    // Obtenim l'element on mostrar el valor del camp superposat a la imatge
+    let IMG_VALUE_SUFFIX = "__imgValue";
+    let imgValueContainer = document.getElementById( inputField.id + IMG_VALUE_SUFFIX );
+
+    // Actualitzem el valor
+    imgValueContainer.innerText = inputField.value;
+}
+
+
+function selectProsthesisMainBody(neckDiameter)
+{
     // Buscar cuerpos con sobredimensionamiento entre 10% y 30%
     const minAllowedDiameter = neckDiameter * 1.10;
     const maxAllowedDiameter = neckDiameter * 1.30;
@@ -42,19 +57,22 @@ function selectMainBody(neckDiameter) {
         body.diameter >= minAllowedDiameter && body.diameter <= maxAllowedDiameter
     );
     
-    if (suitableBodies.length === 0) {
+    if (suitableBodies.length === 0)
+    {
         return null; // No hay cuerpo disponible
     }
     
     // Seleccionar el menor que sea adecuado
     const selectedBody = suitableBodies[0];
+    
     return {
         ...selectedBody,
         oversizing: ((selectedBody.diameter / neckDiameter - 1) * 100).toFixed(1)
     };
 }
 
-function findBranchOptions(targetDiameter, bodyLength, legLength, totalDistance) {
+function findBranchOptions( targetDiameter, bodyLength, legLength, totalDistance )
+{
     // Aplicar sobredimensionamiento entre 10% y 30% para sellado ilíaco
     const minAllowedDiameter = targetDiameter * 1.10;
     const maxAllowedDiameter = targetDiameter * 1.30;
@@ -73,8 +91,10 @@ function findBranchOptions(targetDiameter, bodyLength, legLength, totalDistance)
     // Opción 1: Rama única
     suitableBranches.forEach(branch => {
         const totalCoverage = currentCoverage + branch.length - 30; // -30 por solapamiento pata-rama
-        if (totalCoverage >= totalDistance) {
+        if (totalCoverage >= totalDistance)
+        {
             const oversizing = ((branch.diameter / targetDiameter - 1) * 100).toFixed(1);
+            
             options.push({
                 type: 'single',
                 branches: [branch],
@@ -87,16 +107,24 @@ function findBranchOptions(targetDiameter, bodyLength, legLength, totalDistance)
     });
     
     // Opción 2: Múltiples ramas (para casos que requieren mayor longitud)
-    for (let i = 0; i < suitableBranches.length; i++) {
-        for (let j = 0; j < suitableBranches.length; j++) {
+    for (let i = 0; i < suitableBranches.length; i++)
+    {
+        for (let j = 0; j < suitableBranches.length; j++)
+        {
             const branch1 = suitableBranches[i];
             const branch2 = suitableBranches[j];
             
             // Verificar que ambas ramas tengan el mismo diámetro para conectarse
-            if (branch1.diameter === branch2.diameter) {
+            if (branch1.diameter === branch2.diameter)
+            {
+                // Calcular cobertura total de ambas ramas    
                 const totalCoverage = currentCoverage + branch1.length + branch2.length - 60; // -30 pata-rama1, -30 rama1-rama2
-                if (totalCoverage >= totalDistance && branch1.length + branch2.length - 30 > remainingDistance) {
+                
+                if (totalCoverage >= totalDistance && 
+                    branch1.length + branch2.length - 30 > remainingDistance)
+                {
                     const oversizing = ((branch1.diameter / targetDiameter - 1) * 100).toFixed(1);
+                    
                     options.push({
                         type: 'double',
                         branches: [branch1, branch2],
@@ -111,7 +139,8 @@ function findBranchOptions(targetDiameter, bodyLength, legLength, totalDistance)
     }
     
     // Verificar si se necesita puente
-    const needsBridge = options.length === 0 || remainingDistance > Math.max(...suitableBranches.map(b => b.length));
+    const needsBridge = options.length === 0 || 
+                        remainingDistance > Math.max(...suitableBranches.map(b => b.length));
     
     // Ordenar por exceso menor (preferir las que se ajusten mejor)
     return {
@@ -122,7 +151,8 @@ function findBranchOptions(targetDiameter, bodyLength, legLength, totalDistance)
     };
 }
 
-function calculateProsthesis() {
+function calculateProsthesis()
+{
     const neckDiameter = parseFloat(document.getElementById('neckDiameter').value);
     const contralateralIliacDiameter = parseFloat(document.getElementById('contralateralIliacDiameter').value);
     const ipsilateralIliacDiameter = parseFloat(document.getElementById('ipsilateralIliacDiameter').value);
@@ -132,25 +162,33 @@ function calculateProsthesis() {
     const resultsDiv = document.getElementById('results');
 
     // Validar entrada
-    if (isNaN(neckDiameter) || isNaN(contralateralIliacDiameter) || isNaN(ipsilateralIliacDiameter) || 
-        isNaN(contralateralDistance) || isNaN(ipsilateralDistance)) {
+    if ( isNaN( neckDiameter ) || 
+         isNaN( contralateralIliacDiameter ) || 
+         isNaN( ipsilateralIliacDiameter ) || 
+         isNaN( contralateralDistance ) || 
+         isNaN( ipsilateralDistance ) ) 
+    {
         resultsDiv.innerHTML = `
             <div class="error">
                 <strong>Error:</strong> Por favor, completa todos los campos con valores numéricos válidos.
             </div>
         `;
+
         return;
     }
 
-    // Seleccionar cuerpo principal
-    const selectedBody = selectMainBody(neckDiameter);
-    if (!selectedBody) {
+    // Seleccionar cuerpo principal de la prótesis
+    const selectedBody = selectProsthesisMainBody(neckDiameter);
+    
+    if ( !selectedBody )
+    {
         resultsDiv.innerHTML = `
             <div class="error">
                 <strong>Error:</strong> No hay cuerpo principal disponible para un diámetro de cuello de ${neckDiameter}mm con sobredimensionamiento entre 10% y 30%.
                 <br>Considere alternativas quirúrgicas o dispositivos de diferente diámetro.
             </div>
         `;
+    
         return;
     }
 
@@ -182,8 +220,9 @@ function calculateProsthesis() {
             </div>
     `;
 
-    if (contralateralResult.options.length > 0) {
-        contralateralResult.options.slice(0, 3).forEach((option, index) => {
+    if (contralateralResult.options.length > 0)
+    {
+        contralateralResult.options.slice(0, 3).forEach((option, index) => {    
             resultsHTML += `
                 <div class="branch-option">
                     <div class="branch-title">Opción ${index + 1}: ${option.description}</div>
@@ -193,7 +232,9 @@ function calculateProsthesis() {
                 </div>
             `;
         });
-    } else {
+    }
+    else
+    {
         resultsHTML += `
             <div class="error">
                 No hay ramas disponibles para diámetro ${contralateralIliacDiameter}mm con sobredimensionamiento entre 10% y 30%
@@ -201,7 +242,8 @@ function calculateProsthesis() {
         `;
     }
 
-    if (contralateralResult.needsBridge) {
+    if (contralateralResult.needsBridge)
+    {
         resultsHTML += `
             <div class="bridge-warning">
                 <strong>⚠️ Atención:</strong> Se requiere rama puente adicional para cubrir la distancia completa en lado contralateral.
@@ -223,7 +265,8 @@ function calculateProsthesis() {
             </div>
     `;
 
-    if (ipsilateralResult.options.length > 0) {
+    if (ipsilateralResult.options.length > 0)
+    {
         ipsilateralResult.options.slice(0, 3).forEach((option, index) => {
             resultsHTML += `
                 <div class="branch-option">
@@ -234,7 +277,9 @@ function calculateProsthesis() {
                 </div>
             `;
         });
-    } else {
+    }
+    else
+    {
         resultsHTML += `
             <div class="error">
                 No hay ramas disponibles para diámetro ${ipsilateralIliacDiameter}mm con sobredimensionamiento entre 10% y 30%
@@ -242,7 +287,8 @@ function calculateProsthesis() {
         `;
     }
 
-    if (ipsilateralResult.needsBridge) {
+    if (ipsilateralResult.needsBridge)
+    {
         resultsHTML += `
             <div class="bridge-warning">
                 <strong>⚠️ Atención:</strong> Se requiere rama puente adicional para cubrir la distancia completa en lado ipsilateral.
@@ -255,7 +301,9 @@ function calculateProsthesis() {
 
     // Advertencias
     let warningHTML = '';
-    if (parseFloat(selectedBody.oversizing) > 25) {
+
+    if (parseFloat(selectedBody.oversizing) > 25)
+    {
         warningHTML += `
             <div class="warning">
                 <strong>Advertencia:</strong> Sobredimensionamiento alto del cuerpo principal (+${selectedBody.oversizing}%). Verificar compatibilidad anatómica.
@@ -263,7 +311,8 @@ function calculateProsthesis() {
         `;
     }
     
-    if (parseFloat(selectedBody.oversizing) < 10) {
+    if (parseFloat(selectedBody.oversizing) < 10)
+    {
         warningHTML += `
             <div class="warning">
                 <strong>Advertencia:</strong> Sobredimensionamiento muy bajo del cuerpo principal (+${selectedBody.oversizing}%). Riesgo elevado de endoleak tipo I.
@@ -278,7 +327,8 @@ function calculateProsthesis() {
 
 // Permitir cálculo con Enter
 document.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter')
+    {
         calculateProsthesis();
     }
 });

@@ -34,36 +34,49 @@
                     </span>
                 </div>
 
-
                 <div class="anatomic-measurements">
                     <img src="static/images/anatomic-measurements.png" 
                          class="anatomic-measurements__image"
                          alt="Medidas anatómicas">
+                    
+                    <!-- Contenidors per mostrar superposats a la imatge de mides anatòmiques 
+                         els valors introduïts per l'usuari als camps del formulari -->
+                    <div id="neckDiameter__imgValue" class="img-value"
+                         style="top: 18%; left: 27%;"></div>
+                    <div id="contralateralIliacDiameter__imgValue" class="img-value"
+                         style="top: 62%; left: 65%;"></div>
+                    <div id="ipsilateralIliacDiameter__imgValue" class="img-value"
+                         style="top: 62%; left: 27%;"></div>
+                    <div id="contralateralDistance__imgValue" class="img-value"
+                         style="top: 43%; left: 70%;"></div>
+                    <div id="ipsilateralDistance__imgValue" class="img-value"
+                         style="top: 43%; left: 25%;"></div>
+                    
                 </div>
 
                 <div class="form-group">
                     <label for="neckDiameter">Diámetro del cuello del aneurisma (mm)</label>
-                    <input type="number" id="neckDiameter" step="0.1" placeholder="Ej: 24.5">                    
+                    <input type="number" id="neckDiameter" step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
                 </div>
 
                 <div class="form-group">
                     <label for="contralateralIliacDiameter">Diámetro de sellado ilíaco contralateral (mm)</label>
-                    <input type="number" id="contralateralIliacDiameter" step="0.1" placeholder="Ej: 18.0">
+                    <input type="number" id="contralateralIliacDiameter" step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
                 </div>
 
                 <div class="form-group">
                     <label for="ipsilateralIliacDiameter">Diámetro de sellado ilíaco ipsilateral (mm)</label>
-                    <input type="number" id="ipsilateralIliacDiameter" step="0.1" placeholder="Ej: 16.5">
+                    <input type="number" id="ipsilateralIliacDiameter" step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
                 </div>
 
                 <div class="form-group">
                     <label for="contralateralDistance">Distancia desde cuello hasta sellado distal contralateral (mm)</label>
-                    <input type="number" id="contralateralDistance" placeholder="Ej: 150">
+                    <input type="number" id="contralateralDistance" placeholder="Ej: 150" oninput="updateImageLabel( event )">
                 </div>
 
                 <div class="form-group">
                     <label for="ipsilateralDistance">Distancia desde cuello hasta sellado distal ipsilateral (mm)</label>
-                    <input type="number" id="ipsilateralDistance" placeholder="Ej: 145">
+                    <input type="number" id="ipsilateralDistance" placeholder="Ej: 145" oninput="updateImageLabel( event )">
                 </div>
 
                 <button class="calculate-btn" onclick="calculateProsthesis()">
