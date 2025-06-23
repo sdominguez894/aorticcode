@@ -271,6 +271,14 @@ body {
     color: #d3d3d3;
 }
 
+/* Positions of image values for large displays */
+#neckDiameter__imgValue { top: 18%; left: 23%; }
+#contralateralIliacDiameter__imgValue { top: 62%; left: 68%; }
+#ipsilateralIliacDiameter__imgValue { top: 62%; left: 23%; }
+#contralateralDistance__imgValue { top: 43%; left: 75%; }
+#ipsilateralDistance__imgValue { top: 43%; left: 22%; }
+
+
 @media (max-width: 768px) {         
     .content {
         grid-template-columns: 1fr;
@@ -284,4 +292,11 @@ body {
         width: 200px;
         height: auto;
     }
+
+    /* Positions of image values for mobile displays */
+    #neckDiameter__imgValue { top: 18%; left: 27%; }
+    #contralateralIliacDiameter__imgValue { top: 62%; left: 65%; }
+    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 27%; }
+    #contralateralDistance__imgValue { top: 43%; left: 71%; }
+    #ipsilateralDistance__imgValue { top: 43%; left: 25%; }
 }
