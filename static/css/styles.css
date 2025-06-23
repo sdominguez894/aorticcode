@@ -293,10 +293,15 @@ body {
         height: auto;
     }
 
+    .img-value
+    {
+        font-size: 10px;
+    }
+
     /* Positions of image values for mobile displays */
-    #neckDiameter__imgValue { top: 18%; left: 27%; }
-    #contralateralIliacDiameter__imgValue { top: 62%; left: 65%; }
-    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 27%; }
-    #contralateralDistance__imgValue { top: 43%; left: 71%; }
-    #ipsilateralDistance__imgValue { top: 43%; left: 25%; }
+    #neckDiameter__imgValue { top: 18%; left: 18%; }
+    #contralateralIliacDiameter__imgValue { top: 62%; left: 72%; }
+    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
+    #contralateralDistance__imgValue { top: 43%; left: 79%; }
+    #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
 }
