@@ -3,6 +3,12 @@
 :root {
     --section-accent-color: #a4a4a4;
     --btn-color: #999;
+
+    /* Colors */
+    --azure: #4863a0;
+    --dark-purple: #550a35;
+    --purple-pink: #d16587;
+    --dark-mint: #60a799;
 }
 
 * {
@@ -127,6 +133,26 @@ body {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.border-green {
+    border: 3px solid limegreen !important;
+}
+
+.border-blue {
+    border: 3px solid var( --azure ) !important;
+}
+
+.border-purple {
+    border: 3px solid var( --dark-purple ) !important;
+}
+
+.border-pink {
+    border: 3px solid var( --purple-pink ) !important;
+}
+
+.border-green-blue {
+    border: 3px solid var( --dark-mint ) !important;
 }
 
 .calculate-btn {

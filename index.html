@@ -54,29 +54,39 @@
                     
                 </div>
 
+                border-blue
+                border-purple
+                border-pinky-purple
+                border-blue-green
+
                 <div class="form-group">
                     <label for="neckDiameter">Diámetro del cuello del aneurisma (mm)</label>
-                    <input type="number" id="neckDiameter" step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
+                    <input type="number" id="neckDiameter" class="border-green"
+                           step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
                 </div>
 
                 <div class="form-group">
                     <label for="contralateralIliacDiameter">Diámetro de sellado ilíaco contralateral (mm)</label>
-                    <input type="number" id="contralateralIliacDiameter" step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
+                    <input type="number" id="contralateralIliacDiameter" class="border-pink"
+                           step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
                 </div>
 
                 <div class="form-group">
                     <label for="ipsilateralIliacDiameter">Diámetro de sellado ilíaco ipsilateral (mm)</label>
-                    <input type="number" id="ipsilateralIliacDiameter" step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
+                    <input type="number" id="ipsilateralIliacDiameter" class="border-green-blue"
+                           step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
                 </div>
 
                 <div class="form-group">
                     <label for="contralateralDistance">Distancia desde cuello hasta sellado distal contralateral (mm)</label>
-                    <input type="number" id="contralateralDistance" placeholder="Ej: 150" oninput="updateImageLabel( event )">
+                    <input type="number" id="contralateralDistance" class="border-purple"
+                           placeholder="Ej: 150" oninput="updateImageLabel( event )">
                 </div>
 
                 <div class="form-group">
                     <label for="ipsilateralDistance">Distancia desde cuello hasta sellado distal ipsilateral (mm)</label>
-                    <input type="number" id="ipsilateralDistance" placeholder="Ej: 145" oninput="updateImageLabel( event )">
+                    <input type="number" id="ipsilateralDistance" class="border-blue"
+                           placeholder="Ej: 145" oninput="updateImageLabel( event )">
                 </div>
 
                 <button class="calculate-btn" onclick="calculateProsthesis()">
