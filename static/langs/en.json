@@ -1,0 +1,68 @@
+{
+  "lang": {
+    "id": "en",
+    "text": "English"
+  },
+  "header": {
+    "title": "EVAR Prosthesis Calculator"
+  },
+  "input-section": {
+    "title": "Patient Measurements",
+    "description": "Enter the anatomical measurements in the fields below to obtain the appropriate EVAR prosthesis.",
+    "annotation": "The entered values will automatically appear in the reference image.",
+    "form": {
+      "neckDiameter": "Aneurysm neck diameter (mm)",
+      "contralateralIliacDiameter": "Contralateral iliac sealing diameter (mm)",
+      "ipsilateralIliacDiameter": "Ipsilateral iliac sealing diameter (mm)",
+      "contralateralDistance": "Distance from neck to contralateral distal sealing (mm)",
+      "ipsilateralDistance": "Distance from neck to ipsilateral distal sealing (mm)",
+      "example": "Ex",
+      "calculateButton": "Calculate Prosthesis"
+    },
+    "anatomic-measurements": "Diagram of patient measurements",
+    "information": "The values entered in the fields will automatically appear in the reference image."
+  },
+  "results-section": {
+    "title": "Results and Recommendations",
+    "results-intro": "Enter the patient’s measurements and click \"Calculate Prosthesis\" to obtain the recommendations.",
+    "result-title": "Selected Main Body"
+  },
+  "error": {
+    "generic": "Please complete all fields with valid numeric values.",
+    "no-main-body": "No main body available for a neck diameter of {neckDiameter}mm with oversizing between 10% and 30%.<br>Consider surgical alternatives or devices with a different diameter.",
+    "no-branches": "No branches available for diameter {iliacDiameter}mm with oversizing between 10% and 30%."
+  },
+  "main-body": {
+    "title": "Selected Main Body",
+    "diameter": "Diameter: {bodyDiameter}mm (Neck: {neckDiameter}mm, Oversizing: +{oversizing}%)",
+    "length": "Main body length: {bodyLength}mm",
+    "legs": "Contralateral leg: {shortLeg}mm | Ipsilateral leg: {longLeg}mm"
+  },
+  "branch": {
+    "contralateral": "Contralateral",
+    "ipsilateral": "Ipsilateral",
+    "leg": "Leg",
+    "short-leg": "short",
+    "long-leg": "song",
+    "title": "↔️ Iliac Branch {side} ({branchLabel} leg)",
+    "total-distance": "<strong>Total distance to cover</strong>: {totalDistance}mm",
+    "coverage": "<strong>Coverage of main body + {branchLabel} leg</strong>: {totalCoverage}mm",
+    "note": "<small>Extension with branches required (considering 30mm overlap)</small>",
+    "option-title": "Option {index}: {description}",
+    "option-details": "Total coverage: {totalCoverage}mm | Excess: {excess}mm",
+    "bridge-warning": "<strong>⚠️ Warning:</strong> Additional bridging branch required to cover the full distance on the {side} side.<br>Estimated remaining distance: ~{remainingDistance}mm",
+    "option-single": "Single branch: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)`",
+    "option-double": "Double branch: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)"
+  },
+  "warnings": {
+    "warning": "Warning",
+    "oversizing-high": "High oversizing of the main body (+{oversizing}%). Verify anatomical compatibility.",
+    "oversizing-low": "Very low oversizing of the main body (+{oversizing}%). High risk of type I endoleak."
+  },
+  "footer": {
+    "warning": "WARNING: This application is for informational purposes only and does not replace professional clinical judgment.",
+    "legal": "It has not been validated for use in patients. For more information, see \"Legal Notice and Terms of Use\"",
+    "concept-by": "Original concept by Dr. Esteve Bramon Casademont",
+    "created-by": "Created by Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno, and Andrea Maxé.\r\nBarcelona, 2025."
+  }
+}

@@ -63,6 +63,11 @@ body {
     padding: 30px;
 }
 
+.content .full-width {
+    /* Makes the element span 2 columns by starting at column line 1 and span to the last column line (-1).*/    
+    grid-column: 1 / -1; 
+}
+
 .input-section {
     background: #f8f9fa;
     padding: 25px;
@@ -122,7 +127,7 @@ body {
 
 .form-group input {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
@@ -279,6 +284,17 @@ body {
 #ipsilateralDistance__imgValue { top: 43%; left: 22%; }
 
 
+@media (max-width: 1024px)
+{
+    /* Positions of image values for tablets or mobile displays in landscape view */
+    #neckDiameter__imgValue { top: 18%; left: 18%; }
+    #contralateralIliacDiameter__imgValue { top: 62%; left: 72%; }
+    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
+    #contralateralDistance__imgValue { top: 43%; left: 79%; }
+    #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
+
+}
+
 @media (max-width: 768px) {         
     .content {
         grid-template-columns: 1fr;
@@ -304,4 +320,86 @@ body {
     #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
     #contralateralDistance__imgValue { top: 43%; left: 79%; }
     #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
+}
+
+/* Selector de idioma: contenedor principal */
+.language-select-wrapper {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 100;
+    font-family: inherit;
+}
+
+/* Botón para mostrar el idioma seleccionado */
+.language-select-btn {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 24px;
+    padding: 6px 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-size: 16px;
+    transition: border 0.2s;
+    min-width: 120px;
+}
+
+/* Efecto hover en el botón de idioma */
+.language-select-btn:hover {
+    border-color: #007bff;
+}
+
+/* Icono de bandera en el botón y menú */
+.flag-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    background: #f8f8f8;
+}
+
+/* Flecha de desplegable */
+.dropdown-arrow {
+    margin-left: auto;
+    font-size: 18px;
+    color: #888;
+}
+/* Menú desplegable de idiomas */
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 44px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    min-width: 160px;
+}
+
+/* Opciones de idioma dentro del menú */
+.language-dropdown li {
+    display: flex;
+    align-items: center;
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.15s;
+}
+
+/* Efecto hover en las opciones del menú */
+.language-dropdown li:hover {
+    background: #f0f4fa;
+}
+
+/* Espaciado para el icono de bandera en el menú */
+.language-dropdown .flag-icon {
+    margin-right: 10px;
 }

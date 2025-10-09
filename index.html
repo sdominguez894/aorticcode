@@ -5,35 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Prótesis EVAR</title>
 
-    <!-- CSS imports -->
+    <!-- CSS IMPORTS -->
     <link rel="stylesheet" href="static/css/styles.css">
 
-    <!-- Javascript imports -->
-    <script src="static/js/main.js"></script>
+    <!-- JS IMPORTS -->
+    <!-- Import main.js que conté la lògica de càlcul de la pròtesi -->
+    <script type="module" src="static/js/main.js"></script>
+    <!-- Import lang.js que conté la lògica de selecció d'idioma i traducció del contingut -->
+    <script src="static/js/lang.js"></script>
 </head>
 <body>
+    
+    <!-- Selector de idioma -->
+    <div class="language-select-wrapper" id="languageSelectWrapper">
+        <!-- Populated dynamically using the langModule -->
+    </div>
+
     <div class="container">
         <div class="header">
             <div class="logo">
                 <img src="static/images/aorticode-logo-white-font.png" alt="Aorticcode logo">
             </div>
-            <p>Calculadora de Prótesis EVAR</p>
+            <p data-i18n="header.title"></p>
         </div>
 
         <div class="content">
             <div class="input-section">
                 <div class="section-title">
-                    📏 Medidas del Paciente
+                    <span data-i18n="input-section.title"></span> 
                 </div>
                 
                 <!-- Texto informativo sobre las medidas anatómicas -->
                 <div class="input-section__description">
-                    <p>Introduce las medidas anatómicas en los campos inferiores para obtener la prótesis EVAR adecuada.</p> 
+                    <span data-i18n="input-section.description"></span> 
+                    <!--
                     <span class="annotation-font">
                         Los valores introducidos se mostrarán automáticamente en la imagen de referencia.
                     </span>
+                    -->
                 </div>
 
+                <br>
+
+                <div class="form-group">
+                    <label for="neckDiameter">
+                        <span data-i18n="input-section.form.neckDiameter"></span>
+                    </label>
+                    <input type="number" id="neckDiameter" class="border-green"
+                           step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
+                </div>
+
+                <div class="form-group">
+                    <label for="contralateralIliacDiameter">
+                        <span data-i18n="input-section.form.contralateralIliacDiameter"></span>
+                    </label>
+                    <input type="number" id="contralateralIliacDiameter" class="border-pink"
+                           step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
+                </div>
+
+                <div class="form-group">
+                    <label for="ipsilateralIliacDiameter">
+                        <span data-i18n="input-section.form.ipsilateralIliacDiameter"></span>
+                    </label>
+                    <input type="number" id="ipsilateralIliacDiameter" class="border-green-blue"
+                           step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
+                </div>
+
+                <div class="form-group">
+                    <label for="contralateralDistance">
+                        <span data-i18n="input-section.form.contralateralDistance"></span>
+                    </label>
+                    <input type="number" id="contralateralDistance" class="border-purple"
+                           placeholder="Ej: 150" oninput="updateImageLabel( event )">
+                </div>
+
+                <div class="form-group">
+                    <label for="ipsilateralDistance">
+                        <span data-i18n="input-section.form.ipsilateralDistance"></span>
+                    </label>
+                    <input type="number" id="ipsilateralDistance" class="border-blue"
+                           placeholder="Ej: 145" oninput="updateImageLabel( event )">
+                </div>
+
+                <button class="calculate-btn" onclick="calculateProsthesis()">
+                    🔍 <span data-i18n="input-section.form.calculateButton"></span>
+                </button>
+            </div>
+            
+            <div class="input-section">
+                
+                <div class="section-title">
+                    📏 <span data-i18n="input-section.anatomic-measurements"></span>
+                </div>
+                
+                <!-- Texto informativo sobre las medidas anatómicas -->
+                <div class="input-section__description">
+                    <span class="annotation-font">
+                        <span data-i18n="input-section.information"></span>
+                    </span>
+                </div>
+                
                 <div class="anatomic-measurements">
                     <img src="static/images/anatomic-measurements.png" 
                          class="anatomic-measurements__image"
@@ -48,55 +119,21 @@
                     <div id="ipsilateralDistance__imgValue" class="img-value"></div>
                     
                 </div>
-
-                <div class="form-group">
-                    <label for="neckDiameter">Diámetro del cuello del aneurisma (mm)</label>
-                    <input type="number" id="neckDiameter" class="border-green"
-                           step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
-                </div>
-
-                <div class="form-group">
-                    <label for="contralateralIliacDiameter">Diámetro de sellado ilíaco contralateral (mm)</label>
-                    <input type="number" id="contralateralIliacDiameter" class="border-pink"
-                           step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
-                </div>
-
-                <div class="form-group">
-                    <label for="ipsilateralIliacDiameter">Diámetro de sellado ilíaco ipsilateral (mm)</label>
-                    <input type="number" id="ipsilateralIliacDiameter" class="border-green-blue"
-                           step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
-                </div>
-
-                <div class="form-group">
-                    <label for="contralateralDistance">Distancia desde cuello hasta sellado distal contralateral (mm)</label>
-                    <input type="number" id="contralateralDistance" class="border-purple"
-                           placeholder="Ej: 150" oninput="updateImageLabel( event )">
-                </div>
-
-                <div class="form-group">
-                    <label for="ipsilateralDistance">Distancia desde cuello hasta sellado distal ipsilateral (mm)</label>
-                    <input type="number" id="ipsilateralDistance" class="border-blue"
-                           placeholder="Ej: 145" oninput="updateImageLabel( event )">
-                </div>
-
-                <button class="calculate-btn" onclick="calculateProsthesis()">
-                    🔍 Calcular Prótesis
-                </button>
             </div>
 
-            <div class="results-section">
+            <div class="results-section full-width">
                 <div class="section-title">
-                    🎯 Resultados y Recomendaciones
+                    🎯 <span data-i18n="results-section.title"></span>
                 </div>
                 <div id="results">
                     <p style="text-align: center; color: #6c757d; font-style: italic; margin-top: 50px;">
-                        Introduce las medidas del paciente y haz clic en "Calcular Prótesis" para obtener las recomendaciones.
+                        <span data-i18n="results-section.results-intro"></span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <div class="footer">
         <p class="annotation-font">
             <!--
@@ -116,15 +153,15 @@
                 5. Legislación aplicable
                 Estas condiciones se rigen por la legislación española. Para cualquier conflicto derivado del uso de la aplicación, las partes se someterán a los juzgados y tribunales competentes del domicilio del titular de la aplicación.
             -->
-            ⚠️ATENCIÓN: Esta aplicación tiene un propósito exclusivamente informativo y no sustituye el juicio clínico profesional.
-            <br>No ha sido validada para su uso en pacientes. Para más información, ver "Aviso Legal y Condiciones de Uso"
-        
+            ⚠️<span data-i18n="footer.warning"></span>
+            <br>
+            <span data-i18n="footer.legal"></span>
             <br>
             
             <div class="annotation-font" style="font-size: 12px;">
-                Aorticcode©: Concepto original de Dr. Esteve Bramon Casademont. 
+                <span data-i18n="footer.concept-by"></span>
                 <br>
-                Creado por Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno y Andrea Maxé.
+                <span data-i18n="footer.created-by"></span>                
                 <br>
                 Barcelona, 2025.
             </div>

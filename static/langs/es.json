@@ -1,0 +1,68 @@
+{
+  "lang": {
+    "id": "es",
+    "text": "Castellano"
+  },
+  "header": {
+    "title": "Calculadora de Prótesis EVAR"
+  },
+  "input-section": {
+    "title": "Medidas del Paciente",
+    "description": "Introduce las medidas anatómicas en los campos inferiores para obtener la prótesis EVAR adecuada.",
+    "annotation": "Los valores introducidos se mostrarán automáticamente en la imagen de referencia.",
+    "form": {
+      "neckDiameter": "Diámetro del cuello del aneurisma (mm)",
+      "contralateralIliacDiameter": "Diámetro de sellado ilíaco contralateral (mm)",
+      "ipsilateralIliacDiameter": "Diámetro de sellado ilíaco ipsilateral (mm)",
+      "contralateralDistance": "Distancia desde cuello hasta sellado distal contralateral (mm)",
+      "ipsilateralDistance": "Distancia desde cuello hasta sellado distal ipsilateral (mm)",
+      "example": "Ej",
+      "calculateButton": "Calcular Prótesis"
+    },
+    "anatomic-measurements": "Diagrama de las medidas del paciente",
+    "information": "Los valores introducidos en los campos se mostrarán automáticamente en la imagen de referencia."
+  },
+  "results-section": {
+    "title": "Resultados y Recomendaciones",
+    "results-intro": "Introduce las medidas del paciente y haz clic en \"Calcular Prótesis\" para obtener las recomendaciones.",
+    "result-title": "Cuerpo Principal Seleccionado"
+  },
+  "error": {
+    "generic": "Por favor, completa todos los campos con valores numéricos válidos.",
+    "no-main-body": "No hay cuerpo principal disponible para un diámetro de cuello de {neckDiameter}mm con sobredimensionamiento entre 10% y 30%.<br>Considere alternativas quirúrgicas o dispositivos de diferente diámetro.",
+    "no-branches": "No hay ramas disponibles para diámetro {iliacDiameter}mm con sobredimensionamiento entre 10% y 30%."
+  },
+  "main-body": {
+    "title": "Cuerpo Principal Seleccionado",
+    "diameter": "Diámetro: {bodyDiameter}mm (Cuello: {neckDiameter}mm, Sobredimensionamiento: +{oversizing}%)",
+    "length": "Longitud del cuerpo: {bodyLength}mm",
+    "legs": "Pata contralateral: {shortLeg}mm | Pata ipsilateral: {longLeg}mm"
+  },
+  "branch": {
+    "contralateral": "Contralateral",
+    "ipsilateral": "Ipsilateral",
+    "leg": "Pata",
+    "short-leg": "corta",
+    "long-leg": "larga", 
+    "title": "Rama Ilíaca {side} (Pata {branchLabel})",
+    "total-distance": "<strong>Distancia total a cubrir:</strong> {totalDistance}mm",
+    "coverage": "<strong>Cobertura del cuerpo + pata {branchLabel}</strong>: {totalCoverage}mm",
+    "note": "<small>Necesaria extensión con ramas (considerando solapamiento de 30mm)</small>",
+    "option-title": "Opción {index}: {description}",
+    "option-details": "Cobertura total: {totalCoverage}mm | Exceso: {excess}mm",
+    "bridge-warning": "<strong>⚠️ Atención:</strong>: Se requiere rama puente adicional para cubrir la distancia completa en lado {side}.<br>Distancia restante estimada: ~{remainingDistance}mm",
+    "option-single": "Rama única: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)`",
+    "option-double": "Doble rama: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)"
+  },
+  "warnings": {
+    "warning": "Advertencia",
+    "oversizing-high": "Sobredimensionamiento alto del cuerpo principal (+{oversizing}%). Verificar compatibilidad anatómica.",
+    "oversizing-low": "Sobredimensionamiento muy bajo del cuerpo principal (+{oversizing}%). Riesgo elevado de endoleak tipo I."
+  },
+  "footer": {
+    "warning": "ATENCIÓN: Esta aplicación tiene un propósito exclusivamente informativo y no sustituye el juicio clínico profesional.",
+    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"Aviso Legal y Condiciones de Uso\"",
+    "concept-by": "Concepto original de Dr. Esteve Bramon Casademont",
+    "created-by": "Creado por Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno y Andrea Maxé.\r\nBarcelona, 2025."
+  }
+}

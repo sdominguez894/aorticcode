@@ -1,0 +1,67 @@
+{
+  "lang": {
+    "id": "ca",
+    "text": "Català"
+  },
+  "header": {
+    "title": "Calculadora de Pròtesis EVAR"
+  },
+  "input-section": {
+    "title": "Mesures del Pacient",
+    "description": "Introdueix les mesures anatòmiques als camps inferiors per obtenir la pròtesi EVAR adequada.",
+    "annotation": "Els valors introduïts es mostraran automàticament en la imatge de referència.",
+    "form": {
+      "neckDiameter": "Diàmetre del coll de l'aneurisma (mm)",
+      "contralateralIliacDiameter": "Diàmetre de segellat ilíac contralateral (mm)",
+      "ipsilateralIliacDiameter": "Diàmetre de segellat ilíac ipsilateral (mm)",
+      "contralateralDistance": "Distància des del coll fins al segellat distal contralateral (mm)",
+      "ipsilateralDistance": "Distància des del coll fins al segellat distal ipsilateral (mm)",
+      "example": "Ex",
+      "calculateButton": "Calcular Pròtesi"
+    },
+    "anatomic-measurements": "Diagrama de les mesures del pacient",
+    "information": "Els valors introduïts als camps es mostraran automàticament en la imatge de referència."
+  },
+  "results-section": {
+    "title": "Resultats i Recomanacions",
+    "results-intro": "Introdueix les mesures del pacient i fes clic a \"Calcular Pròtesi\" per obtenir les recomanacions.",
+    "result-title": "Cos Principal Seleccionat"
+  },
+  "error": {
+    "generic": "Si us plau, completa tots els camps amb valors numèrics vàlids.",
+    "no-main-body": "No hi ha cap cos principal disponible per a un diàmetre de coll de {neckDiameter}mm amb sobredimensionament entre 10% i 30%.<br>Considera alternatives quirúrgiques o dispositius de diàmetre diferent.",
+    "no-branches": "No hi ha branques disponibles per a un diàmetre {iliacDiameter}mm amb sobredimensionament entre 10% i 30%."
+  },
+  "main-body": {
+    "title": "Cos Principal Seleccionat",
+    "diameter": "Diàmetre: {bodyDiameter}mm (Coll: {neckDiameter}mm, Sobredimensionament: +{oversizing}%)",
+    "length": "Longitud del cos: {bodyLength}mm",
+    "legs": "Pota contralateral: {shortLeg}mm | Pota ipsilateral: {longLeg}mm"
+  },
+  "branch": {
+    "contralateral": "Contralateral",
+    "leg": "Pota",
+    "short-leg": "curta",
+    "long-leg": "llarga",
+    "title": "Branca Ilíaca {side} (Pota {branchLabel})",
+    "total-distance": "<strong>Distància total a cobrir:</strong> {totalDistance}mm",
+    "coverage": "<strong>Cobertura del cos + pota {branchLabel}</strong>: {totalCoverage}mm",
+    "note": "<small>Necessària extensió amb branques (considerant un solapament de 30mm)</small>",
+    "option-title": "Opció {index}: {description}",
+    "option-details": "Cobertura total: {totalCoverage}mm | Excés: {excess}mm",
+    "bridge-warning": "<strong>⚠️ Atenció:</strong>: Es requereix una branca pont addicional per cobrir tota la distància al costat {side}.<br>Distància restant estimada: ~{remainingDistance}mm",
+    "option-single": "Branca única: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)`",
+    "option-double": "Doble branca: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)"
+  },
+  "warnings": {
+    "warning": "Advertència",
+    "oversizing-high": "Sobredimensionament alt del cos principal (+{oversizing}%). Verificar compatibilitat anatòmica.",
+    "oversizing-low": "Sobredimensionament molt baix del cos principal (+{oversizing}%). Risc elevat d'endoleak tipus I."
+  },
+  "footer": {
+    "warning": "ATENCIÓ: Aquesta aplicació té un propòsit exclusivament informatiu i no substitueix el criteri clínic professional.",
+    "legal": "No ha estat validada per al seu ús en pacients. Per a més informació, consulta \"Avís Legal i Condicions d'Ús\"",
+    "concept-by": "Concepte original del Dr. Esteve Bramon Casademont",
+    "created-by": "Creat per Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno i Andrea Maxé.\r\nBarcelona, 2025."
+  }
+}
