@@ -61,8 +61,21 @@
   },
   "footer": {
     "warning": "WARNING: This application is for informational purposes only and does not replace professional clinical judgment.",
-    "legal": "It has not been validated for use in patients. For more information, see \"Legal Notice and Terms of Use\"",
+    "legal": "It has not been validated for use in patients. For more information, see \"<a class=\"legal-link\" href=\"/legal\">Legal Notice and Terms of Use</a>\"",
     "concept-by": "Original concept by Dr. Esteve Bramon Casademont",
     "created-by": "Created by Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno, and Andrea Maxé.\r\nBarcelona, 2025."
+  },
+  "legal": {
+    "title": "Legal Notice and Terms of Use",
+    "section1-title": "1. General Information",
+    "section1-content": "This application is intended exclusively for informational and educational purposes. It does not constitute a diagnostic tool nor does it replace the clinical judgment of healthcare professionals. The user assumes full responsibility for its use.",
+    "section2-title": "2. Limitation of Liability",
+    "section2-content": "The developers do not guarantee the accuracy or clinical validity of the recommendations or results provided. This tool is not certified as a medical device. Any medical decision must be based on professional evaluation and not on the results provided by this application. Its use is the sole responsibility of the user.",
+    "section3-title": "3. Data Protection",
+    "section3-content": "The application may collect personal or medical data solely for its internal operation. This data will not be used for commercial purposes nor shared with third parties, and will be processed in accordance with the General Data Protection Regulation (GDPR) and Spanish Law 3/2018 (LOPDGDD). The user may exercise their rights of access, rectification, or deletion of data at any time.",
+    "section4-title": "4. Intellectual Property",
+    "section4-content": "All content, design, source code, and graphic elements of this application are the property of the developers and are protected by intellectual property laws. Reproduction, distribution, or modification without express authorization is prohibited.",
+    "section5-title": "5. Applicable Law",
+    "section5-content": "These terms are governed by Spanish law. For any dispute arising from the use of the application, the parties will submit to the competent courts of the owner's domicile."
   }
 }

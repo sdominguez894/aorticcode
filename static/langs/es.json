@@ -61,8 +61,21 @@
   },
   "footer": {
     "warning": "ATENCIÓN: Esta aplicación tiene un propósito exclusivamente informativo y no sustituye el juicio clínico profesional.",
-    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"Aviso Legal y Condiciones de Uso\"",
+    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"<a class=\"legal-link\" href=\"/legal\">Aviso Legal y Condiciones de Uso</a>\"",
     "concept-by": "Concepto original de Dr. Esteve Bramon Casademont",
     "created-by": "Creado por Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno y Andrea Maxé.\r\nBarcelona, 2025."
+  },
+  "legal": {
+    "title": "Aviso Legal y Condiciones de Uso",
+    "section1-title": "1. Información general",
+    "section1-content": "Esta aplicación tiene fines exclusivamente informativos y educativos. En ningún caso constituye una herramienta diagnóstica ni reemplaza el juicio clínico de profesionales sanitarios. El usuario asume la plena responsabilidad derivada de su uso.",
+    "section2-title": "2. Limitación de responsabilidad",
+    "section2-content": "Los desarrolladores no garantizan la precisión ni la validez clínica de las recomendaciones o resultados ofrecidos. Esta herramienta no está certificada como producto sanitario. Cualquier decisión médica debe basarse en la evaluación profesional y no en los resultados proporcionados por esta aplicación. El uso de la misma es responsabilidad exclusiva del usuario.",
+    "section3-title": "3. Protección de datos",
+    "section3-content": "La aplicación puede recoger datos de carácter personal o médico únicamente para su funcionamiento interno. Estos datos no se utilizarán con fines comerciales ni se cederán a terceros, y serán tratados conforme al Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD). El usuario podrá ejercer en cualquier momento sus derechos de acceso, rectificación o supresión de datos.",
+    "section4-title": "4. Propiedad intelectual",
+    "section4-content": "Todos los contenidos, diseño, código fuente y elementos gráficos de esta aplicación son propiedad de los desarrolladores y están protegidos por la legislación de propiedad intelectual. Queda prohibida su reproducción, distribución o modificación sin autorización expresa.",
+    "section5-title": "5. Legislación aplicable",
+    "section5-content": "Estas condiciones se rigen por la legislación española. Para cualquier conflicto derivado del uso de la aplicación, las partes se someterán a los juzgados y tribunales competentes del domicilio del titular de la aplicación."
   }
 }

@@ -60,8 +60,21 @@
   },
   "footer": {
     "warning": "ATENCIÓ: Aquesta aplicació té un propòsit exclusivament informatiu i no substitueix el criteri clínic professional.",
-    "legal": "No ha estat validada per al seu ús en pacients. Per a més informació, consulta \"Avís Legal i Condicions d'Ús\"",
+    "legal": "No ha estat validada per al seu ús en pacients. Per a més informació, consulta \"<a class=\"legal-link\" href=\"/legal\">Avís Legal i Condicions d'Ús</a>\"",
     "concept-by": "Concepte original del Dr. Esteve Bramon Casademont",
     "created-by": "Creat per Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno i Andrea Maxé.\r\nBarcelona, 2025."
+  },
+  "legal": {
+    "title": "Avís Legal i Condicions d'Ús",
+    "section1-title": "1. Informació general",
+    "section1-content": "Aquesta aplicació té finalitats exclusivament informatives i educatives. En cap cas constitueix una eina diagnòstica ni substitueix el criteri clínic dels professionals sanitaris. L'usuari assumeix la plena responsabilitat derivada del seu ús.",
+    "section2-title": "2. Limitació de responsabilitat",
+    "section2-content": "Els desenvolupadors no garanteixen la precisió ni la validesa clínica de les recomanacions o resultats oferts. Aquesta eina no està certificada com a producte sanitari. Qualsevol decisió mèdica ha de basar-se en l'avaluació professional i no en els resultats proporcionats per aquesta aplicació. L'ús de la mateixa és responsabilitat exclusiva de l'usuari.",
+    "section3-title": "3. Protecció de dades",
+    "section3-content": "L'aplicació pot recollir dades de caràcter personal o mèdic únicament per al seu funcionament intern. Aquestes dades no s'utilitzaran amb finalitats comercials ni es cediran a tercers, i seran tractades conforme al Reglament General de Protecció de Dades (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD). L'usuari podrà exercir en qualsevol moment els seus drets d'accés, rectificació o supressió de dades.",
+    "section4-title": "4. Propietat intel·lectual",
+    "section4-content": "Tots els continguts, disseny, codi font i elements gràfics d'aquesta aplicació són propietat dels desenvolupadors i estan protegits per la legislació de propietat intel·lectual. En queda prohibida la reproducció, distribució o modificació sense autorització expressa.",
+    "section5-title": "5. Legislació aplicable",
+    "section5-content": "Aquestes condicions es regeixen per la legislació espanyola. Per a qualsevol conflicte derivat de l'ús de l'aplicació, les parts se sotmetran als jutjats i tribunals competents del domicili del titular de l'aplicació."
   }
 }

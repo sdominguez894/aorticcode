@@ -6,6 +6,7 @@
 
     /* Colors */
     --azure: #4863a0;
+    --azure-light: #6c8ff0;
     --dark-purple: #550a35;
     --purple-pink: #d16587;
     --dark-mint: #60a799;
@@ -402,4 +403,46 @@ body {
 /* Espaciado para el icono de bandera en el menú */
 .language-dropdown .flag-icon {
     margin-right: 10px;
+}
+
+/* Legal Notice Styles */
+.legal-notice {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.legal-title {
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.legal-content {
+    text-align: left;
+    display: inline-block;
+    max-width: 600px;
+}
+
+.legal-content section {
+    margin-bottom: 18px;
+}
+
+.legal-section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.legal-content p {
+    margin: 0;
+}
+
+.legal-link {
+    color: var(--azure-light);
+    text-decoration: none;
 }

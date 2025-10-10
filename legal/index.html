@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de Prótesis EVAR</title>
+
+        <!-- CSS IMPORTS -->
+        <link rel="stylesheet" href="/static/css/styles.css">
+
+        <!-- JS IMPORTS -->
+        <!-- Import main.js que conté la lògica de càlcul de la pròtesi -->
+        <script type="module" src="/static/js/main.js"></script>
+        <!-- Import lang.js que conté la lògica de selecció d'idioma i traducció del contingut -->
+        <script src="../static/js/lang.js"></script>
+    </head>
+    <body>
+        <!-- Selector de idioma -->
+        <div class="language-select-wrapper" id="languageSelectWrapper">
+            <!-- Populated dynamically using the langModule -->
+        </div>
+
+        <div class="container" styles="background: #f8f9fa !important;">
+            <div class="header">
+                <div class="logo">
+                    <img src="../static/images/aorticode-logo-white-font.png" alt="Aorticcode logo">
+                </div>
+                <p data-i18n="header.title"></p>
+            </div>
+ 
+            <div class="legal-notice">
+                <h2 class="legal-title" data-i18n="legal.title"></h2>
+                <div class="legal-content">
+                    <section>
+                        <h3 class="legal-section-title" data-i18n="legal.section1-title"></h3>
+                        <p data-i18n="legal.section1-content"></p>
+                    </section>
+                    <section>
+                        <h3 class="legal-section-title" data-i18n="legal.section2-title"></h3>
+                        <p data-i18n="legal.section2-content"></p>
+                    </section>
+                    <section>
+                        <h3 class="legal-section-title" data-i18n="legal.section3-title"></h3>
+                        <p data-i18n="legal.section3-content"></p>
+                    </section>
+                    <section>
+                        <h3 class="legal-section-title" data-i18n="legal.section4-title"></h3>
+                        <p data-i18n="legal.section4-content"></p>
+                    </section>
+                    <section>
+                        <h3 class="legal-section-title" data-i18n="legal.section5-title"></h3>
+                        <p data-i18n="legal.section5-content"></p>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer">
+            <p class="annotation-font">
+                ⚠️<span data-i18n="footer.warning"></span>
+                <br>
+                <span data-i18n="footer.legal"></span>
+                <br>
+                
+                <div class="annotation-font" style="font-size: 12px;">
+                    <span data-i18n="footer.concept-by"></span>
+                    <br>
+                    <span data-i18n="footer.created-by"></span>                
+                    <br>
+                    Barcelona, 2025.
+                </div>
+
+            </p>
+        </div>
+        
+    </body>
+</html>

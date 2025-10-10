@@ -14,10 +14,10 @@ const langModule = (() => {
     };
 
     // Ruta de las imágenes de las banderas para cada idioma
-    const imgsPath = 'static/images/langs/flags/';
+    const imgsPath = '/static/images/langs/flags/';
 
     // Ruta de los archivos JSON con las traducciones
-    const jsonsPath = 'static/langs/';
+    const jsonsPath = '/static/langs/';
 
     // Diccionario de traducciones del idioma actual
     let translations = {};
