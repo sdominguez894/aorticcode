@@ -284,45 +284,6 @@ body {
 #contralateralDistance__imgValue { top: 43%; left: 75%; }
 #ipsilateralDistance__imgValue { top: 43%; left: 22%; }
 
-
-@media (max-width: 1024px)
-{
-    /* Positions of image values for tablets or mobile displays in landscape view */
-    #neckDiameter__imgValue { top: 18%; left: 18%; }
-    #contralateralIliacDiameter__imgValue { top: 62%; left: 72%; }
-    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
-    #contralateralDistance__imgValue { top: 43%; left: 79%; }
-    #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
-
-}
-
-@media (max-width: 768px) {         
-    .content {
-        grid-template-columns: 1fr;
-    }
-    
-    .header h1 {
-        font-size: 2em;
-    }
-
-    .header .logo img {
-        width: 200px;
-        height: auto;
-    }
-
-    .img-value
-    {
-        font-size: 10px;
-    }
-
-    /* Positions of image values for mobile displays */
-    #neckDiameter__imgValue { top: 18%; left: 18%; }
-    #contralateralIliacDiameter__imgValue { top: 62%; left: 72%; }
-    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
-    #contralateralDistance__imgValue { top: 43%; left: 79%; }
-    #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
-}
-
 /* Selector de idioma: contenedor principal */
 .language-select-wrapper {
     position: absolute;
@@ -335,10 +296,11 @@ body {
 /* Botón para mostrar el idioma seleccionado */
 .language-select-btn {
     display: flex;
+    gap: 10px;
     align-items: center;
     background: #fff;
     border: 1px solid #e0e0e0;
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 6px 16px;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -356,7 +318,6 @@ body {
 .flag-icon {
     width: 22px;
     height: 22px;
-    margin-right: 10px;
     vertical-align: middle;
     border-radius: 50%;
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -365,10 +326,23 @@ body {
 
 /* Flecha de desplegable */
 .dropdown-arrow {
-    margin-left: auto;
-    font-size: 18px;
-    color: #888;
+    margin-top: -8px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border: solid #666;
+    border-width: 0 2.5px 2.5px 0;
+    padding: 5px;
+    transform: rotate(45deg);
+    transition: transform 0.2s;
 }
+
+/* Flecha abierta (rotada 180°) */
+.language-select-btn.open .dropdown-arrow {
+    transform: rotate(-135deg);
+    margin-top: 3px;
+}
+
 /* Menú desplegable de idiomas */
 .language-dropdown {
     display: none;
@@ -381,7 +355,7 @@ body {
     box-shadow: 0 4px 16px rgba(0,0,0,0.10);
     list-style: none;
     margin: 0;
-    padding: 6px 0;
+    padding: 0 5px;
     min-width: 160px;
 }
 
@@ -445,4 +419,78 @@ body {
 .legal-link {
     color: var(--azure-light);
     text-decoration: none;
+}
+
+/*****************************/
+/* Responsive Design Styles */
+/***************************/
+
+@media (max-width: 1024px)
+{
+    /* Positions of image values for tablets or mobile displays in landscape view */
+    #neckDiameter__imgValue { top: 18%; left: 18%; }
+    #contralateralIliacDiameter__imgValue { top: 62%; left: 72%; }
+    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
+    #contralateralDistance__imgValue { top: 43%; left: 79%; }
+    #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
+}
+
+@media (max-width: 768px) {         
+    .content {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header .logo img {
+        width: 200px;
+        height: auto;
+    }
+
+    .img-value
+    {
+        font-size: 10px;
+    }
+
+    /* Positions of image values for mobile displays */
+    #neckDiameter__imgValue { top: 18%; left: 18%; }
+    #contralateralIliacDiameter__imgValue { top: 62%; left: 72%; }
+    #ipsilateralIliacDiameter__imgValue { top: 62%; left: 16%; }
+    #contralateralDistance__imgValue { top: 43%; left: 79%; }
+    #ipsilateralDistance__imgValue { top: 43%; left: 14%; }
+
+    /* Selector de idioma: contenedor principal */
+    .language-select-wrapper {
+        top: 10px;
+        right: 10px;
+        font-size: 12px;
+    }
+    .language-select-btn {
+        min-width: 80px;
+        padding: 4px 10px;
+        font-size: 14px;
+        border-radius: 10px;
+        gap: 6px;
+    }
+    .flag-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .dropdown-arrow {
+        width: 10px;
+        height: 10px;
+        padding: 3px;
+        margin-top: -6px;
+    }
+    .language-dropdown {
+        min-width: 100px;
+        top: 34px;
+        font-size: 12px;
+    }
+    .language-dropdown li {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
 }

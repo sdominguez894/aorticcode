@@ -37,7 +37,7 @@ const langModule = (() => {
         const languageBtn = `<button id="languageSelectBtn" class="language-select-btn">
                                 <img src="${imgsPath}${selectedLang.flagFile}" alt="${selectedLang.name}" class="flag-icon">
                                 <span id="selectedLanguageText">${selectedLang.name}</span>
-                                <span class="dropdown-arrow">&#9662;</span>
+                                <span class="dropdown-arrow"></span>
                             </button>`;
 
         // Construcció del desplegable d'idiomes
@@ -192,7 +192,9 @@ const langModule = (() => {
 
         languageBtn.onclick = function (e)
         {
-            languageDropdown.style.display = (languageDropdown.style.display === 'block') ? 'none' : 'block';
+            const isOpen = languageDropdown.style.display === 'block';
+            languageDropdown.style.display = isOpen ? 'none' : 'block';
+            languageBtn.classList.toggle('open', !isOpen);
         };
 
         languageDropdown.onclick = async function (e)
@@ -206,6 +208,7 @@ const langModule = (() => {
                 selectedLanguageText.textContent = text;
                 languageBtn.querySelector('img').src = img;
                 languageDropdown.style.display = 'none';
+                languageBtn.classList.remove('open');
                 
                 currentLang = lang;
                 translateHtml();
@@ -217,6 +220,7 @@ const langModule = (() => {
             if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target))
             {
                 languageDropdown.style.display = 'none';
+                languageBtn.classList.remove('open');
             }
         });
     });
