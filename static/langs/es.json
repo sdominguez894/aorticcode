@@ -61,7 +61,7 @@
   },
   "footer": {
     "warning": "ATENCIÓN: Esta aplicación tiene un propósito exclusivamente informativo y no sustituye el juicio clínico profesional.",
-    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"<a class=\"legal-link\" href=\"/legal\">Aviso Legal y Condiciones de Uso</a>\"",
+    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"<a class=\"legal-link\" target=\"_blank\" href=\"/legal\">Aviso Legal y Condiciones de Uso</a>\"",
     "concept-by": "Concepto original de Dr. Esteve Bramon Casademont",
     "created-by": "Creado por Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno y Andrea Maxé.\r\nBarcelona, 2025."
   },
