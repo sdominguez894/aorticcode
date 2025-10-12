@@ -48,10 +48,10 @@
     "total-distance": "<strong>Distancia total a cubrir:</strong> {totalDistance}mm",
     "coverage": "<strong>Cobertura del cuerpo + pata {branchLabel}</strong>: {totalCoverage}mm",
     "note": "<small>Necesaria extensión con ramas (considerando solapamiento de 30mm)</small>",
-    "option-title": "Opción {index}: {description}",
+    "option-title": "Opción {index}: ",
     "option-details": "Cobertura total: {totalCoverage}mm | Exceso: {excess}mm",
     "bridge-warning": "<strong>⚠️ Atención:</strong>: Se requiere rama puente adicional para cubrir la distancia completa en lado {side}.<br>Distancia restante estimada: ~{remainingDistance}mm",
-    "option-single": "Rama única: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)`",
+    "option-single": "Rama única: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)",
     "option-double": "Doble rama: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)"
   },
   "warnings": {
@@ -61,7 +61,7 @@
   },
   "footer": {
     "warning": "ATENCIÓN: Esta aplicación tiene un propósito exclusivamente informativo y no sustituye el juicio clínico profesional.",
-    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"<a class=\"legal-link\" target=\"_blank\" href=\"/legal\">Aviso Legal y Condiciones de Uso</a>\"",
+    "legal": "No ha sido validada para su uso en pacientes. Para más información, ver \"<a class=\"legal-link\" target=\"_blank\" href=\"/views/legal\">Aviso Legal y Condiciones de Uso</a>\"",
     "concept-by": "Concepto original de Dr. Esteve Bramon Casademont",
     "created-by": "Creado por Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno y Andrea Maxé.\r\nBarcelona, 2025."
   },

@@ -48,10 +48,10 @@
     "total-distance": "<strong>Total distance to cover</strong>: {totalDistance}mm",
     "coverage": "<strong>Coverage of main body + {branchLabel} leg</strong>: {totalCoverage}mm",
     "note": "<small>Extension with branches required (considering 30mm overlap)</small>",
-    "option-title": "Option {index}: {description}",
+    "option-title": "Option {index}: ",
     "option-details": "Total coverage: {totalCoverage}mm | Excess: {excess}mm",
     "bridge-warning": "<strong>⚠️ Warning:</strong> Additional bridging branch required to cover the full distance on the {side} side.<br>Estimated remaining distance: ~{remainingDistance}mm",
-    "option-single": "Single branch: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)`",
+    "option-single": "Single branch: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)",
     "option-double": "Double branch: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)"
   },
   "warnings": {
@@ -61,7 +61,7 @@
   },
   "footer": {
     "warning": "WARNING: This application is for informational purposes only and does not replace professional clinical judgment.",
-    "legal": "It has not been validated for use in patients. For more information, see \"<a class=\"legal-link\" target=\"_blank\" href=\"/legal\">Legal Notice and Terms of Use</a>\"",
+    "legal": "It has not been validated for use in patients. For more information, see \"<a class=\"legal-link\" target=\"_blank\" href=\"/views/legal\">Legal Notice and Terms of Use</a>\"",
     "concept-by": "Original concept by Dr. Esteve Bramon Casademont",
     "created-by": "Created by Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno, and Andrea Maxé.\r\nBarcelona, 2025."
   },

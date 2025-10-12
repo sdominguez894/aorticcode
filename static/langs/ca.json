@@ -47,10 +47,10 @@
     "total-distance": "<strong>Distància total a cobrir:</strong> {totalDistance}mm",
     "coverage": "<strong>Cobertura del cos + pota {branchLabel}</strong>: {totalCoverage}mm",
     "note": "<small>Necessària extensió amb branques (considerant un solapament de 30mm)</small>",
-    "option-title": "Opció {index}: {description}",
+    "option-title": "Opció {index}: ",
     "option-details": "Cobertura total: {totalCoverage}mm | Excés: {excess}mm",
     "bridge-warning": "<strong>⚠️ Atenció:</strong>: Es requereix una branca pont addicional per cobrir tota la distància al costat {side}.<br>Distància restant estimada: ~{remainingDistance}mm",
-    "option-single": "Branca única: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)`",
+    "option-single": "Branca única: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)",
     "option-double": "Doble branca: {code} (Ø{diameter}mm, L{length}mm, +{oversizing}%)"
   },
   "warnings": {
@@ -60,7 +60,7 @@
   },
   "footer": {
     "warning": "ATENCIÓ: Aquesta aplicació té un propòsit exclusivament informatiu i no substitueix el criteri clínic professional.",
-    "legal": "No ha estat validada per al seu ús en pacients. Per a més informació, consulta \"<a class=\"legal-link\" target=\"_blank\" href=\"/legal\">Avís Legal i Condicions d'Ús</a>\"",
+    "legal": "No ha estat validada per al seu ús en pacients. Per a més informació, consulta \"<a class=\"legal-link\" target=\"_blank\" href=\"/views/legal\">Avís Legal i Condicions d'Ús</a>\"",
     "concept-by": "Concepte original del Dr. Esteve Bramon Casademont",
     "created-by": "Creat per Esteve Bramon Casademont, Mariona Mas Padilla, Sergio Domínguez Moreno i Andrea Maxé.\r\nBarcelona, 2025."
   },
