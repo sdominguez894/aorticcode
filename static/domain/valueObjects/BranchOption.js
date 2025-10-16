@@ -2,8 +2,10 @@ import { BranchSide } from '/static/domain/enums/BranchSide.js';
 import { BranchType } from '/static/domain/enums/BranchType.js';
 
 /**
- * Value Object representing a possible iliac branch prosthetic option
- * calculated based on the anatomical measurements of a patient
+ * Value Object representing a possible iliac branch prosthetic option, 
+ * which may include one or two branches.
+ * 
+ * The branch option is calculated based on the anatomical measurements of a patient
  * 
  * Immutable: once created, its properties should not be mutated.
  */
@@ -51,7 +53,7 @@ export class BranchOption
    */
   toString()
   {
-    const names = this._branches.map(b => b.code ?? b.id ?? 'unknown')
+    const names = this._branches.map( b => b.code ?? b.id ?? 'unknown' )
                                 .join(' + ');
 
     return `${this._side.toUpperCase()} - ${this._type.toUpperCase()} [${names}] — ${this._oversizing}% oversizing, +${this._excess}mm`;
