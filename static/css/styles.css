@@ -4,12 +4,20 @@
     --section-accent-color: #a4a4a4;
     --btn-color: #999;
 
-    /* Colors */
-    --azure: #4863a0;
+    /* Color variables */
+    --azure: #3677B6;
     --azure-light: #6c8ff0;
-    --dark-purple: #550a35;
-    --purple-pink: #d16587;
-    --dark-mint: #60a799;
+    --dark-purple: #611E4B;
+    --purple-pink: #BD3F7D;
+    --dark-mint: #50A7A0;
+    --light-green: #58B037;
+
+    /** Color variables for page elements */
+    --neckDiameterColor: var( --light-green );
+    --contralateralIliacDiameterColor: var( --purple-pink );
+    --ipsilateralIliacDiameterColor: var( --dark-mint );
+    --contralateralDistanceColor: var( --dark-purple );
+    --ipsilateralDistanceColor: var( --azure );
 }
 
 * {
@@ -141,24 +149,24 @@ body {
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
-.border-green {
-    border: 3px solid limegreen !important;
+.border-neckDiameter {
+    border: 3px solid var( --neckDiameterColor ) !important;
 }
 
-.border-blue {
-    border: 3px solid var( --azure ) !important;
+.border-ipsilateralDistance {
+    border: 3px solid var( --ipsilateralDistanceColor ) !important;
 }
 
-.border-purple {
-    border: 3px solid var( --dark-purple ) !important;
+.border-contralateralDistance {
+    border: 3px solid var( --contralateralDistanceColor ) !important;
 }
 
-.border-pink {
-    border: 3px solid var( --purple-pink ) !important;
+.border-contralateralIliacDiameter {
+    border: 3px solid var( --contralateralIliacDiameterColor ) !important;
 }
 
-.border-green-blue {
-    border: 3px solid var( --dark-mint ) !important;
+.border-ipsilateralIliacDiameter {
+    border: 3px solid var( --ipsilateralIliacDiameterColor ) !important;
 }
 
 .calculate-btn {

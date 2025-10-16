@@ -7,12 +7,16 @@ import { BranchesRepository } from '/static/domain/ports/BranchesRepository.js';
 import { PatientMeasurements } from '/static/domain/entities/PatientMeasurements.js';
 import langModule from '/static/app/lang.js';
 
-// Carreguem l'element de resultats
+// Element del bloc de resultats
 let resultsElement = undefined;
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Es carrega l'element per reutilitzar-lo al codi
     resultsElement = document.getElementById( 'results' );
+
+    // Es carrega l'esquema de la pròtesis aòrtica on mostrar les mesures del pacient ( imatge SVG )
+    loadAnatomicMeasuramentsImage();
 
     // Permitir cálculo con Enter
     document.addEventListener('keypress', function(e) {
@@ -25,6 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+
+/**
+ * Carrega i seteja la imatge SVG de les mesures anatòmiques dintre del contenidor ( element amb id anatomic-measurements )
+ * 
+ * Es fa d'aquesta manera per evitar tenir el SVG inline a l'HTML que embruta molt però simulant que està inline 
+ * per així poder manipular-lo actualitzant els seus contingut i podent estilitzar-lo amb CSS
+ */
+window.loadAnatomicMeasuramentsImage = async function loadAnatomicMeasuramentsImage()
+{
+    // Get the svg data
+    const response = await fetch( new URL('/static/images/anatomic-measurements.svg', import.meta.url) );
+    const svgContent = await response.text();
+
+    // Set the svg in HTML inside the container element
+	const container = document.getElementById( 'anatomic-measurements' );
+	container.innerHTML = svgContent;
+}   
 
 /**
  * Actualitza un valor a l'etiqueta corresponent
@@ -39,10 +61,10 @@ window.updateImageLabel = function updateImageLabel( event )
 
     // Obtenim l'element on mostrar el valor ( etiqueta dins l'esquema anatòmic )
     let IMG_VALUE_SUFFIX = "__imgValue";
-    let imgValueContainer = document.getElementById( inputField.id + IMG_VALUE_SUFFIX );
+    let imageLabel = document.getElementById( inputField.id + IMG_VALUE_SUFFIX );
 
     // Actualitzem el valor per mostrar-lo a l'esquema anatòmic
-    imgValueContainer.innerText = inputField.value;
+    imageLabel.textContent = inputField.value;
 }
 
 /**
@@ -354,6 +376,7 @@ window.renderBranchSection = function renderBranchSection( side, results, bodyLe
 }
 
 /**
+ * Construeix l'HTML amb la descripció d'una opció ( branca o combinació de branques )
  * 
  * @param   {BranchOption}  option      Opció (de branca) amb el que montar el text de descripció 
  * 

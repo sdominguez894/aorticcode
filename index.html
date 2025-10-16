@@ -48,40 +48,40 @@
                         <label for="neckDiameter">
                             <span data-i18n="input-section.form.neckDiameter"></span>
                         </label>
-                        <input type="number" id="neckDiameter" class="border-green"
-                            step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
+                        <input type="number" id="neckDiameter" class="border-neckDiameter"
+                               step="0.1" placeholder="Ej: 24.5" oninput="updateImageLabel( event )">                    
                     </div>
 
                     <div class="form-group">
                         <label for="contralateralIliacDiameter">
                             <span data-i18n="input-section.form.contralateralIliacDiameter"></span>
                         </label>
-                        <input type="number" id="contralateralIliacDiameter" class="border-pink"
-                            step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
+                        <input type="number" id="contralateralIliacDiameter" class="border-contralateralIliacDiameter"
+                               step="0.1" placeholder="Ej: 18.0" oninput="updateImageLabel( event )">
                     </div>
 
                     <div class="form-group">
                         <label for="ipsilateralIliacDiameter">
                             <span data-i18n="input-section.form.ipsilateralIliacDiameter"></span>
                         </label>
-                        <input type="number" id="ipsilateralIliacDiameter" class="border-green-blue"
-                            step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
+                        <input type="number" id="ipsilateralIliacDiameter" class="border-ipsilateralIliacDiameter"
+                               step="0.1" placeholder="Ej: 16.5" oninput="updateImageLabel( event )">
                     </div>
 
                     <div class="form-group">
                         <label for="contralateralDistance">
                             <span data-i18n="input-section.form.contralateralDistance"></span>
                         </label>
-                        <input type="number" id="contralateralDistance" class="border-purple"
-                            placeholder="Ej: 150" oninput="updateImageLabel( event )">
+                        <input type="number" id="contralateralDistance" class="border-contralateralDistance"
+                               placeholder="Ej: 150" oninput="updateImageLabel( event )">
                     </div>
 
                     <div class="form-group">
                         <label for="ipsilateralDistance">
                             <span data-i18n="input-section.form.ipsilateralDistance"></span>
                         </label>
-                        <input type="number" id="ipsilateralDistance" class="border-blue"
-                            placeholder="Ej: 145" oninput="updateImageLabel( event )">
+                        <input type="number" id="ipsilateralDistance" class="border-ipsilateralDistance"
+                               placeholder="Ej: 145" oninput="updateImageLabel( event )">
                     </div>
 
                     <button class="calculate-btn" onclick="calculateProsthesis()">
@@ -102,19 +102,8 @@
                         </span>
                     </div>
                     
-                    <div class="anatomic-measurements">
-                        <img src="/static/images/anatomic-measurements.png" 
-                            class="anatomic-measurements__image"
-                            alt="Medidas anatómicas">
-                        
-                        <!-- Contenidors per mostrar superposats a la imatge de mides anatòmiques 
-                            els valors introduïts per l'usuari als camps del formulari -->
-                        <div id="neckDiameter__imgValue" class="img-value"></div>
-                        <div id="contralateralIliacDiameter__imgValue" class="img-value"></div>
-                        <div id="ipsilateralIliacDiameter__imgValue" class="img-value"></div>
-                        <div id="contralateralDistance__imgValue" class="img-value"></div>
-                        <div id="ipsilateralDistance__imgValue" class="img-value"></div>
-                        
+                    <!-- Contenidor de l'esquema / imatge amb les mesures anatòmiques del pacient -->
+                    <div id="anatomic-measurements" class="anatomic-measurements">
                     </div>
                 </div>
 
